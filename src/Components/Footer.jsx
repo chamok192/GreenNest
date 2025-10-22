@@ -52,10 +52,9 @@ const Footer = () => {
                     </div>
                     <div>
                         <h6 className="text-white text-xl font-semibold">Company</h6>
-                        <Link className="link link-hover">About us</Link>
-                        <Link className="link link-hover">Contact</Link>
-                        <Link className="link link-hover">Jobs</Link>
-                        <Link className="link link-hover">Press kit</Link>
+                        <Link to="/" className="link link-hover">About</Link>
+                        <Link to="/" className="link link-hover">Contact</Link>
+                        <Link to="/privacy" className="link link-hover">Privacy Policy</Link>
                     </div>
                     <div>
                         <h6 className="text-white text-xl font-semibold">Legal</h6>
@@ -66,7 +65,7 @@ const Footer = () => {
                 </div>
                 <hr  className='text-[#77af8d]'/>
                 <div className="text-center py-4 text-white text-sm">
-                    © 2025 HERO.IO . All rights reserved.
+                    © 2025 GreenNest. All rights reserved.
                 </div>
             </Container>
         </footer>
