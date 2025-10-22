@@ -1,0 +1,122 @@
+[
+  {
+    "plantId": 1,
+    "plantName": "Snake Plant",
+    "category": "Air Purifier",
+    "price": 18,
+    "rating": 4.8,
+    "availableStock": 10,
+    "careLevel": "Easy",
+    "description": "The Snake Plant, also known as Sansevieria, is a striking, upright plant with long, slender, sword-shaped leaves that are typically green with variegated silver-gray patterns. Renowned for its air-purifying qualities, it removes toxins like formaldehyde and benzene from indoor environments. This hardy plant thrives in a wide range of lighting conditions, from low light to bright, indirect sunlight, and requires minimal watering, making it ideal for beginners or those with less time for plant care. Its architectural form adds a modern touch to any space, and it’s highly drought-tolerant, needing water only when the soil is completely dry.",
+    "image": "https://images.unsplash.com/photo-1616961002389-504228edfcb7?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=387",
+    "providerName": "UrbanGreen Studio"
+  },
+  {
+    "plantId": 2,
+    "plantName": "Pothos",
+    "category": "Trailing",
+    "price": 12,
+    "rating": 4.6,
+    "availableStock": 15,
+    "careLevel": "Easy",
+    "description": "Pothos, often called Devil’s Ivy, is a versatile trailing plant with heart-shaped, glossy leaves that display vibrant green hues, often with yellow or white variegation. Its cascading vines make it perfect for hanging baskets or draping over shelves, adding a lush, tropical feel to indoor spaces. This low-maintenance plant thrives in low to bright indirect light and requires watering only when the soil feels dry, making it a favorite for novice plant owners. Pothos is also known for its air-purifying abilities, helping to remove indoor pollutants, and its fast growth allows it to quickly fill out spaces.",
+    "image": "https://images.unsplash.com/photo-1602491674275-316d95560fb1?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=464",
+    "providerName": "Leafy Haven"
+  },
+  {
+    "plantId": 3,
+    "plantName": "Peace Lily",
+    "category": "Flowering",
+    "price": 22,
+    "rating": 4.7,
+    "availableStock": 8,
+    "careLevel": "Moderate",
+    "description": "The Peace Lily, or Spathiphyllum, is an elegant indoor plant known for its glossy, dark green leaves and striking white, hood-like blooms that are actually specialized leaf bracts called spathes. It excels in low to medium light conditions, making it perfect for dimly lit rooms, and is highly effective at purifying indoor air by filtering out toxins like ammonia and carbon monoxide. This plant prefers consistently moist soil but can tolerate occasional neglect, with drooping leaves signaling when it needs water. Its graceful appearance and occasional blooms make it a sophisticated addition to homes or offices, though it requires slightly more attention than the easiest-care plants.",
+    "image": "https://plus.unsplash.com/premium_photo-1676117273363-2b13dbbc5385?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=387",
+    "providerName": "Bloom & Grow"
+  },
+  {
+    "plantId": 4,
+    "plantName": "ZZ Plant",
+    "category": "Low Light",
+    "price": 20,
+    "rating": 4.9,
+    "availableStock": 12,
+    "careLevel": "Easy",
+    "description": "The ZZ Plant, or Zamioculcas zamiifolia, is a low-maintenance gem with glossy, dark green, pinnate leaves that grow in a rosette pattern, giving it a sleek, modern look. Its ability to thrive in low light and tolerate infrequent watering makes it an excellent choice for beginners or those with less-than-ideal lighting conditions. The ZZ Plant stores water in its thick rhizomes, allowing it to survive extended periods of drought, needing water only every 2-3 weeks. It’s also known for its air-purifying qualities, removing toxins like xylene and toluene, and its slow growth and sturdy structure make it a long-lasting, low-effort addition to any indoor space.",
+    "image": "https://images.unsplash.com/photo-1632900931939-9a1028f7cef6?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=387",
+    "providerName": "UrbanGreen Studio"
+  },
+  {
+    "plantId": 5,
+    "plantName": "Spider Plant",
+    "category": "Air Purifier",
+    "price": 15,
+    "rating": 4.5,
+    "availableStock": 20,
+    "careLevel": "Easy",
+    "description": "The Spider Plant, or Chlorophytum comosum, is a popular indoor plant with long, arching green leaves striped with white, creating a vibrant, fountain-like appearance. It’s perfect for hanging baskets or elevated surfaces, where its offshoots, or ‘spiderettes,’ dangle charmingly. This plant thrives in bright, indirect light but adapts well to lower light conditions, requiring watering when the top inch of soil feels dry. Known for its air-purifying abilities, it removes pollutants like formaldehyde and is safe for pets. Its fast growth and ability to produce baby plants make it a fun, low-maintenance option for plant enthusiasts.",
+    "image": "https://i.postimg.cc/spider_plant.png",
+    "providerName": "Green Escape"
+  },
+  {
+    "plantId": 6,
+    "plantName": "Monstera Deliciosa",
+    "category": "Statement",
+    "price": 35,
+    "rating": 4.8,
+    "availableStock": 5,
+    "careLevel": "Moderate",
+    "description": "Monstera Deliciosa, often called the Swiss Cheese Plant, is a dramatic tropical plant with large, heart-shaped leaves featuring natural splits and holes, creating a bold, jungle-like aesthetic. It thrives in bright, indirect light but can tolerate moderate light, requiring watering when the top inch of soil dries out. This plant benefits from occasional misting to mimic its humid native environment and may need support as its vines grow. Its striking appearance makes it a centerpiece in any room, though it requires more attention to humidity and light than simpler plants, making it ideal for those ready for a slightly more involved care routine.",
+    "image": "https://images.unsplash.com/photo-1653404809389-f370ea4310dd?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=390",
+    "providerName": "Tropical Trends"
+  },
+  {
+    "plantId": 7,
+    "plantName": "Fiddle Leaf Fig",
+    "category": "Statement",
+    "price": 40,
+    "rating": 4.4,
+    "availableStock": 7,
+    "careLevel": "Moderate",
+    "description": "The Fiddle Leaf Fig, or Ficus lyrata, is a stunning indoor tree with large, violin-shaped, glossy green leaves that add a bold, sculptural element to any space. It prefers bright, indirect light and consistent care, including watering when the top inch of soil is dry and occasional leaf cleaning to maintain its luster. This plant is sensitive to overwatering and drafts, so it requires a stable environment and attentive care. Its towering presence and lush foliage make it a favorite for interior designers, but it’s best suited for those willing to monitor its needs closely.",
+    "image": "https://plus.unsplash.com/premium_photo-1726873295485-0a43124078da?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=388",
+    "providerName": "Leafy Haven"
+  },
+  {
+    "plantId": 8,
+    "plantName": "Aloe Vera",
+    "category": "Succulent",
+    "price": 14,
+    "rating": 4.6,
+    "availableStock": 18,
+    "careLevel": "Easy",
+    "description": "Aloe Vera is a popular succulent with thick, fleshy, green leaves that store water, giving it a plump, sculptural appearance. Known for its soothing gel, which can be used for skin care, this plant thrives in bright, indirect light and requires infrequent watering, allowing the soil to dry out completely between sessions. Its compact size and striking, spiky form make it a great addition to windowsills or desks. Aloe Vera is highly drought-tolerant and resilient, making it an excellent choice for those seeking a low-maintenance plant with practical benefits.",
+    "image": "https://images.unsplash.com/photo-1684913127590-54e08d09a34b?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=464",
+    "providerName": "Desert Bloom"
+  },
+  {
+    "plantId": 9,
+    "plantName": "Rubber Plant",
+    "category": "Foliage",
+    "price": 28,
+    "rating": 4.7,
+    "availableStock": 9,
+    "careLevel": "Moderate",
+    "description": "The Rubber Plant, or Ficus elastica, is a striking indoor plant with large, glossy, dark green leaves that give it a lush, luxurious appearance. It thrives in bright, indirect light and prefers consistently moist but not waterlogged soil, requiring watering when the top inch feels dry. This plant benefits from occasional misting and regular leaf wiping to keep its foliage vibrant. Its bold, upright growth makes it a standout in any room, but it requires attention to light and humidity to prevent leaf drop, making it suitable for those with some plant care experience.",
+    "image": "https://images.unsplash.com/photo-1672062518782-706d6122c0e7?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=387",
+    "providerName": "Bloom & Grow"
+  },
+  {
+    "plantId": 10,
+    "plantName": "Boston Fern",
+    "category": "Fern",
+    "price": 16,
+    "rating": 4.5,
+    "availableStock": 14,
+    "careLevel": "Moderate",
+    "description": "The Boston Fern, or Nephrolepis exaltata, is a lush, feathery plant with soft, arching fronds that create a verdant, cascading effect, ideal for hanging baskets or elevated displays. It thrives in bright, indirect light and high humidity, requiring consistently moist soil and regular misting to mimic its natural, tropical habitat. This fern is excellent for adding texture and greenery to indoor spaces but needs more care than low-maintenance plants, as it’s sensitive to dry air and overwatering. Its vibrant, delicate fronds make it a favorite for creating a serene, natural ambiance.",
+    "image": "https://images.unsplash.com/photo-1587703116750-1d650a8b805d?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=387",
+    "providerName": "Green Escape"
+  }
+]

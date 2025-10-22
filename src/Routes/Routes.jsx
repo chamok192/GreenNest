@@ -1,0 +1,20 @@
+import { createBrowserRouter } from "react-router";
+import MainLayout from "../Layouts/MainLayout";
+import Home from "../Pages/Home";
+
+const router=createBrowserRouter([
+    {
+        path:"/",
+        element: <MainLayout/>,
+        hydrateFallbackElement:<div>Loading...</div>,
+        errorElement:<div>404 Not Found</div>,
+        children:[
+            {
+                path:"/",
+                element:<Home/>
+            }
+        ]
+    }
+]);
+
+export default router;
