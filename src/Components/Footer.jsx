@@ -1,6 +1,6 @@
 import React from 'react';
 import Container from './Container';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 import { Leaf } from 'lucide-react';
 
 const Footer = () => {
@@ -45,28 +45,28 @@ const Footer = () => {
                     </div>
                     <div>
                         <h6 className="text-white text-xl font-semibold">Services</h6>
-                        <Link className="link link-hover">Branding</Link>
-                        <Link className="link link-hover">Design</Link>
-                        <Link className="link link-hover">Marketing</Link>
-                        <Link className="link link-hover">Advertisement</Link>
+                        <Link to={"#"} className="link link-hover">Branding</Link>
+                        <Link to={"#"} className="link link-hover">Design</Link>
+                        <Link to={"#"} className="link link-hover">Marketing</Link>
+                        <Link to={"#"} className="link link-hover">Advertisement</Link>
                     </div>
                     <div>
                         <h6 className="text-white text-xl font-semibold">Company</h6>
-                        <Link className="link link-hover">About us</Link>
-                        <Link className="link link-hover">Contact</Link>
-                        <Link className="link link-hover">Jobs</Link>
-                        <Link className="link link-hover">Press kit</Link>
+                        <Link to={"#"} className="link link-hover">About us</Link>
+                        <Link to={"#"} className="link link-hover">Contact</Link>
+                        <Link to={"#"} className="link link-hover">Jobs</Link>
+                        <Link to={"#"} className="link link-hover">Press kit</Link>
                     </div>
                     <div>
                         <h6 className="text-white text-xl font-semibold">Legal</h6>
-                        <Link className="link link-hover">Terms of use</Link>
-                        <Link className="link link-hover">Privacy policy</Link>
-                        <Link className="link link-hover">Cookie policy</Link>
+                        <Link to={"#"} className="link link-hover">Terms of use</Link>
+                        <Link to={"#"} className="link link-hover">Privacy policy</Link>
+                        <Link to={"#"} className="link link-hover">Cookie policy</Link>
                     </div>
                 </div>
                 <hr  className='text-[#77af8d]'/>
                 <div className="text-center py-4 text-white text-sm">
-                    © 2025 HERO.IO . All rights reserved.
+                    © 2025 GreenNest. All rights reserved.
                 </div>
             </Container>
         </footer>

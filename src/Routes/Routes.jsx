@@ -1,18 +1,16 @@
 
-import { createBrowserRouter } from "react-router";
+import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../Layouts/MainLayout";
 import Home from "../Pages/Home";
 
-const router=createBrowserRouter([
+const router = createBrowserRouter([
     {
-        path:"/",
-        element: <MainLayout/>,
-        hydrateFallbackElement:<div>Loading...</div>,
-        errorElement:<div>404 Not Found</div>,
-        children:[
+        path: "/",
+        element: <MainLayout />,
+        children: [
             {
-                index:true,
-                element:<Home/>
+                index: true,
+                element: <Home />
             }
         ]
     }
