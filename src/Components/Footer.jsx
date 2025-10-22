@@ -1,6 +1,6 @@
 import React from 'react';
 import Container from './Container';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 import { Leaf } from 'lucide-react';
 
 const Footer = () => {
