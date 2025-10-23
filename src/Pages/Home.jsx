@@ -1,6 +1,9 @@
 import React from 'react';
 import Hero from '../Components/Hero';
 import TopPlants from '../Components/TopPlants';
+import PlantCareTips from '../Components/PlantCareTips';
+import GreenExperts from '../Components/GreenExperts';
+import PlantOfTheWeek from '../Components/PlantOfTheWeek';
 
 const Home = () => {
     return (
@@ -14,6 +17,15 @@ const Home = () => {
                     <TopPlants />
                 </div>
             </div>
+
+            {/* Plant Care Tips Section */}
+            <PlantCareTips />
+
+            {/* Plant of the Week Section */}
+            <PlantOfTheWeek />
+
+            {/* Meet Our Green Experts Section */}
+            <GreenExperts />
         </div>
     );
 };
