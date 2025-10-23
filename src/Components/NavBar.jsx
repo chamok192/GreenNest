@@ -19,7 +19,7 @@ const Navbar = () => {
     };
 
     return (
-        <nav className='bg-black text-white'>
+        <nav className='bg-black text-white relative z-50'>
             <Container>
                 <div className="navbar">
                     <div className="navbar-start">
@@ -31,7 +31,7 @@ const Navbar = () => {
                             </div>
                             <ul
                                 tabIndex={0}
-                                className="menu menu-base dropdown-content bg-green-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                                className="menu menu-base dropdown-content bg-green-100 rounded-box z-50 mt-3 w-52 p-2 shadow">
                                 <li> 
                                     <NavLink className="font-semibold text-[#227540] active:bg-green-300" to={"/"}>Home</NavLink> 
                                 </li>

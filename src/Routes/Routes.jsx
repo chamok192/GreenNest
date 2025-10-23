@@ -6,8 +6,8 @@ import Login from "../Pages/Login";
 import Signup from "../Pages/Signup";
 import PlantDetails from "../Pages/PlantDetails";
 import MyProfile from "../Pages/MyProfile";
+import AllPlants from "../Pages/AllPlants";
 import ProtectedRoute from "../Components/ProtectedRoute";
-import TopPlants from "../Components/TopPlants";
 
 const router = createBrowserRouter([
     {
@@ -24,7 +24,7 @@ const router = createBrowserRouter([
             },
             {
                 path:"plants",
-                element:<TopPlants />
+                element:<AllPlants />
             },
             {
                 path: "signup",

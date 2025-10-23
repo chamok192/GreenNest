@@ -1,10 +1,10 @@
 import usePlants from '../Hooks/usePlants';
 import { Link } from 'react-router-dom';
 
-const TopPlants = () => {
+const TopPlants = ({ showAll = false }) => {
     const { plants, loading, error } = usePlants();
 
-    const topPlants = plants.slice(0, 9);
+    const topPlants = showAll ? plants : plants.slice(0, 4);
 
     console.log(topPlants);
 
@@ -23,11 +23,15 @@ const TopPlants = () => {
     return (
         <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-                <h2 className="text-4xl font-bold text-gray-800 mb-4">Featured Plants</h2>
-                <p className="text-lg text-gray-600">Discover our most popular and easy-care plants</p>
+                <h2 className="text-4xl font-bold text-gray-800 mb-4">
+                    {showAll ? 'All Plants' : 'Featured Plants'}
+                </h2>
+                <p className="text-lg text-gray-600">
+                    {showAll ? 'Browse our complete collection of plants' : 'Discover our most popular and easy-care plants'}
+                </p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className={`grid gap-8 ${showAll ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3' : 'grid-cols-1 md:grid-cols-2'}`}>
                 {topPlants.map((plant, index) => (
                     <div key={plant.plantId || index} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
                         <div className="h-64 overflow-hidden">

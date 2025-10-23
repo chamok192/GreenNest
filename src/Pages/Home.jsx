@@ -14,7 +14,7 @@ const Home = () => {
             {/* Top Plants Section */}
             <div className="py-16 bg-gray-50">
                 <div className="container mx-auto px-4">
-                    <TopPlants />
+                    <TopPlants showAll={false} />
                 </div>
             </div>
 
