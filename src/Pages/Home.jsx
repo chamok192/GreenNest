@@ -4,8 +4,16 @@ import TopPlants from '../Components/TopPlants';
 import PlantCareTips from '../Components/PlantCareTips';
 import GreenExperts from '../Components/GreenExperts';
 import PlantOfTheWeek from '../Components/PlantOfTheWeek';
+import PageLoader from '../Components/PageLoader';
+import usePlants from '../Hooks/usePlants';
 
 const Home = () => {
+    const { loading } = usePlants();
+
+    if (loading) {
+        return <PageLoader message="Loading GreenNest..." />;
+    }
+
     return (
         <div>
             {/* Hero Section */}

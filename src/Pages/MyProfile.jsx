@@ -4,7 +4,7 @@ import { User, Mail, Camera, Save, LogOut } from 'lucide-react';
 
 
 const MyProfile = () => {
-    const { currentUser, updateUserProfile, logout } = useAuth();
+    const { currentUser, updateUserProfile, logout, authLoading } = useAuth();
     const [isEditing, setIsEditing] = useState(false);
     const [loading, setLoading] = useState(false);
     const [formData, setFormData] = useState({
@@ -22,15 +22,12 @@ const MyProfile = () => {
 
     const handleSave = async (e) => {
         e.preventDefault();
-        setLoading(true);
         
         try {
             await updateUserProfile(formData.displayName, formData.photoURL);
             setIsEditing(false);
         } catch (error) {
             console.error('Update error:', error);
-        } finally {
-            setLoading(false);
         }
     };
 

@@ -4,6 +4,7 @@ import usePlants from '../Hooks/usePlants';
 import { Star, ShoppingCart, Calendar, Mail, User, ArrowLeft } from 'lucide-react';
 import toast from 'react-hot-toast';
 import Spinner from '../Components/Spinner';
+import PageLoader from '../Components/PageLoader';
 
 const PlantDetails = () => {
     const { plantId } = useParams();
@@ -49,14 +50,7 @@ const PlantDetails = () => {
     };
 
     if (loading) {
-        return (
-            <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-                <div className="text-center">
-                    <Spinner size={12} color="border-green-600" />
-                    <p className="text-gray-600 mt-4">Loading plant details...</p>
-                </div>
-            </div>
-        );
+        return <PageLoader message="Loading plant details..." />;
     }
 
     if (error || !plant) {

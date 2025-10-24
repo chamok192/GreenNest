@@ -21,9 +21,11 @@ export const useAuth = () => {
 export const AuthProvider = ({ children }) => {
     const [currentUser, setCurrentUser] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [authLoading, setAuthLoading] = useState(false);
 
     // Sign up function
     const signup = async (email, password, displayName, photoURL) => {
+        setAuthLoading(true);
         try {
             const result = await createUserWithEmailAndPassword(auth, email, password);
             await updateProfile(result.user, {
@@ -35,11 +37,14 @@ export const AuthProvider = ({ children }) => {
         } catch (error) {
             toast.error(error.message);
             throw error;
+        } finally {
+            setAuthLoading(false);
         }
     };
 
     // Login function
     const login = async (email, password) => {
+        setAuthLoading(true);
         try {
             console.log('Attempting login with:', email);
             const result = await signInWithEmailAndPassword(auth, email, password);
@@ -52,11 +57,14 @@ export const AuthProvider = ({ children }) => {
             console.error('Error message:', error.message);
             toast.error(error.message);
             throw error;
+        } finally {
+            setAuthLoading(false);
         }
     };
 
     // Google login function
     const googleLogin = async () => {
+        setAuthLoading(true);
         try {
             const provider = new GoogleAuthProvider();
             const result = await signInWithPopup(auth, provider);
@@ -65,6 +73,8 @@ export const AuthProvider = ({ children }) => {
         } catch (error) {
             toast.error(error.message);
             throw error;
+        } finally {
+            setAuthLoading(false);
         }
     };
 
@@ -134,6 +144,8 @@ export const AuthProvider = ({ children }) => {
 
     const value = {
         currentUser,
+        loading,
+        authLoading,
         signup,
         login,
         logout,

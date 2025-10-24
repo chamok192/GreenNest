@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import { Heart, ArrowRight } from 'lucide-react';
 import usePlants from '../Hooks/usePlants';
-import Spinner from './Spinner';
+import PageLoader from './PageLoader';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -15,18 +15,19 @@ const Hero = () => {
     // Get more plants for hero slides (first 6 plants)
     const heroPlants = plants.slice(0, 6);
 
-    if (loading) return (
-        <div className="h-screen bg-green-800 flex items-center justify-center">
-            <div className="text-center">
-                <Spinner size={12} color="border-white" />
-                <div className="text-white text-xl mt-4">Loading...</div>
-            </div>
-        </div>
-    );
+    if (loading) return <PageLoader message="Loading beautiful plants..." />;
 
     if (error) return (
         <div className="h-screen bg-green-800 flex items-center justify-center">
-            <div className="text-white text-xl">Error loading plants</div>
+            <div className="text-center">
+                <div className="text-white text-xl mb-4">Error loading plants</div>
+                <button 
+                    onClick={() => window.location.reload()} 
+                    className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700"
+                >
+                    Try Again
+                </button>
+            </div>
         </div>
     );
 

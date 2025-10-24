@@ -3,6 +3,7 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../Contexts/AuthContext';
 import { Eye, EyeOff, Mail, Lock, ArrowRight } from 'lucide-react';
 import toast from 'react-hot-toast';
+import PageLoader from '../Components/PageLoader';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -10,7 +11,7 @@ const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
     const [loading, setLoading] = useState(false);
     
-    const { login, googleLogin, forgotPassword } = useAuth();
+    const { login, googleLogin, forgotPassword, authLoading } = useAuth();
     const navigate = useNavigate();
     const location = useLocation();
     
@@ -24,8 +25,6 @@ const Login = () => {
             return;
         }
         
-        setLoading(true);
-        
         try {
             await login(email, password);
             toast.success('Login successful!');
@@ -33,8 +32,6 @@ const Login = () => {
         } catch (error) {
             console.error('Login error:', error);
             // Error message is already handled in AuthContext
-        } finally {
-            setLoading(false);
         }
     };
 
@@ -51,16 +48,17 @@ const Login = () => {
     };
 
     const handleGoogleLogin = async () => {
-        setLoading(true);
         try {
             await googleLogin();
             navigate(from, { replace: true });
         } catch (error) {
             console.error('Google login error:', error);
-        } finally {
-            setLoading(false);
         }
     };
+
+    if (authLoading) {
+        return <PageLoader message="Signing you in..." />;
+    }
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-green-50 to-green-100 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
@@ -149,10 +147,10 @@ const Login = () => {
                     <div>
                         <button
                             type="submit"
-                            disabled={loading}
+                            disabled={authLoading}
                             className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-lg text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-300"
                         >
-                            {loading ? (
+                            {authLoading ? (
                                 <div className="flex items-center">
                                     <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
                                     Signing in...

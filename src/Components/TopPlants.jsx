@@ -7,7 +7,6 @@ const TopPlants = ({ showAll = false }) => {
 
     const topPlants = showAll ? plants : plants.slice(0, 4);
 
-    console.log(topPlants);
 
     if (loading) return <Spinner />;
     

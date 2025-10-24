@@ -1,8 +1,17 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../Contexts/AuthContext';
-import { Eye, EyeOff, Mail, Lock, User, Camera, ArrowRight } from 'lucide-react';
 import toast from 'react-hot-toast';
+import PageLoader from '../Components/PageLoader';
+
+// Simple icon components to replace lucide-react
+const Eye = () => <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>;
+const EyeOff = () => <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9.88 9.88a3 3 0 1 0 4.24 4.24"/><path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68"/><path d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61"/><line x1="2" x2="22" y1="2" y2="22"/></svg>;
+const Mail = () => <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>;
+const Lock = () => <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>;
+const User = () => <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>;
+const Camera = () => <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>;
+const ArrowRight = () => <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>;
 
 const Signup = () => {
     const [formData, setFormData] = useState({
@@ -17,7 +26,7 @@ const Signup = () => {
     const [passwordErrors, setPasswordErrors] = useState([]);
     const [loading, setLoading] = useState(false);
     
-    const { signup, googleLogin, validatePassword } = useAuth();
+    const { signup, googleLogin, validatePassword, authLoading } = useAuth();
     const navigate = useNavigate();
 
     const handleChange = (e) => {
@@ -48,30 +57,27 @@ const Signup = () => {
             toast.error('Please fix password errors');
             return;
         }
-
-        setLoading(true);
         
         try {
             await signup(formData.email, formData.password, formData.name, formData.photoURL);
             navigate('/');
         } catch (error) {
             console.error('Signup error:', error);
-        } finally {
-            setLoading(false);
         }
     };
 
     const handleGoogleLogin = async () => {
-        setLoading(true);
         try {
             await googleLogin();
             navigate('/');
         } catch (error) {
             console.error('Google login error:', error);
-        } finally {
-            setLoading(false);
         }
     };
+
+    if (authLoading) {
+        return <PageLoader message="Creating your account..." />;
+    }
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-green-50 to-green-100 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
@@ -239,10 +245,10 @@ const Signup = () => {
                     <div>
                         <button
                             type="submit"
-                            disabled={loading || passwordErrors.length > 0}
+                            disabled={authLoading || passwordErrors.length > 0}
                             className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-lg text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-300"
                         >
-                            {loading ? (
+                            {authLoading ? (
                                 <div className="flex items-center">
                                     <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
                                     Creating Account...
@@ -271,7 +277,7 @@ const Signup = () => {
                         <button
                             type="button"
                             onClick={handleGoogleLogin}
-                            disabled={loading}
+                            disabled={authLoading}
                             className="w-full flex justify-center items-center py-3 px-4 border border-gray-300 rounded-lg shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-300"
                         >
                             <svg className="w-5 h-5 mr-2" viewBox="0 0 24 24">

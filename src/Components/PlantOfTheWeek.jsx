@@ -18,7 +18,7 @@ const PlantOfTheWeek = () => {
     };
 
     return (
-        <section className="py-16 bg-gradient-to-r from-green-600 to-green-700">
+        <section className="py-16 bg-linear-to-r from-green-600 to-green-700">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-12">
                     <div className="inline-flex items-center border-b-2  border-white  px-4 py-2 mb-4">
