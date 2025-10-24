@@ -1,5 +1,6 @@
 import usePlants from '../Hooks/usePlants';
 import { Link } from 'react-router-dom';
+import Spinner from './Spinner';
 
 const TopPlants = ({ showAll = false }) => {
     const { plants, loading, error } = usePlants();
@@ -8,11 +9,7 @@ const TopPlants = ({ showAll = false }) => {
 
     console.log(topPlants);
 
-    if (loading) return (
-        <div className="text-center py-8">
-            <div className="text-lg text-gray-600">Loading plants...</div>
-        </div>
-    );
+    if (loading) return <Spinner />;
     
     if (error) return (
         <div className="text-center py-8">

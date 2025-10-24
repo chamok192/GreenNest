@@ -21,8 +21,8 @@ const PlantOfTheWeek = () => {
         <section className="py-16 bg-gradient-to-r from-green-600 to-green-700">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-12">
-                    <div className="inline-flex items-center bg-white bg-opacity-20 rounded-full px-4 py-2 mb-4">
-                        <Calendar className="h-5 w-5 text-white mr-2" />
+                    <div className="inline-flex items-center border-b-2  border-white  px-4 py-2 mb-4">
+                        <Calendar className="bg-gray-500 h-5 w-5 text-white mr-2" />
                         <span className="text-white font-semibold">Plant of the Week</span>
                     </div>
                     <h2 className="text-4xl font-bold text-white mb-4">Featured Plant</h2>

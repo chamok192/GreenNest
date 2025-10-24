@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import { Heart, ArrowRight } from 'lucide-react';
 import usePlants from '../Hooks/usePlants';
+import Spinner from './Spinner';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -16,7 +17,10 @@ const Hero = () => {
 
     if (loading) return (
         <div className="h-screen bg-green-800 flex items-center justify-center">
-            <div className="text-white text-xl">Loading...</div>
+            <div className="text-center">
+                <Spinner size={12} color="border-white" />
+                <div className="text-white text-xl mt-4">Loading...</div>
+            </div>
         </div>
     );
 

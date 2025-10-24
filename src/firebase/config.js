@@ -22,4 +22,9 @@ export const auth = getAuth(app);
 // Initialize Cloud Firestore and get a reference to the service
 export const db = getFirestore(app);
 
+// Test Firebase connection
+console.log('Firebase initialized successfully');
+console.log('Auth instance:', auth);
+console.log('App instance:', app);
+
 export default app;

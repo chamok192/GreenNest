@@ -41,10 +41,15 @@ export const AuthProvider = ({ children }) => {
     // Login function
     const login = async (email, password) => {
         try {
+            console.log('Attempting login with:', email);
             const result = await signInWithEmailAndPassword(auth, email, password);
+            console.log('Login successful:', result.user);
             toast.success('Welcome back!');
             return result;
         } catch (error) {
+            console.error('Login error details:', error);
+            console.error('Error code:', error.code);
+            console.error('Error message:', error.message);
             toast.error(error.message);
             throw error;
         }

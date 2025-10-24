@@ -87,7 +87,7 @@ const MyProfile = () => {
                             </div>
                             <button
                                 onClick={handleLogout}
-                                className="flex items-center px-4 py-2 bg-white bg-opacity-20 text-white rounded-lg hover:bg-opacity-30 transition-colors duration-300"
+                                className="flex items-center px-4 py-2 border-2 border-white text-white rounded-lg hover:bg-opacity-30 transition-colors duration-300"
                             >
                                 <LogOut className="h-5 w-5 mr-2" />
                                 Logout

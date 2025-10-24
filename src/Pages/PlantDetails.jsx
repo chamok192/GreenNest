@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import usePlants from '../Hooks/usePlants';
 import { Star, ShoppingCart, Calendar, Mail, User, ArrowLeft } from 'lucide-react';
 import toast from 'react-hot-toast';
+import Spinner from '../Components/Spinner';
 
 const PlantDetails = () => {
     const { plantId } = useParams();
@@ -51,8 +52,8 @@ const PlantDetails = () => {
         return (
             <div className="min-h-screen bg-gray-50 flex items-center justify-center">
                 <div className="text-center">
-                    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-600 mx-auto mb-4"></div>
-                    <p className="text-gray-600">Loading plant details...</p>
+                    <Spinner size={12} color="border-green-600" />
+                    <p className="text-gray-600 mt-4">Loading plant details...</p>
                 </div>
             </div>
         );

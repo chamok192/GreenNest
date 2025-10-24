@@ -10,7 +10,7 @@ const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
     const [loading, setLoading] = useState(false);
     
-    const { login, googleLogin } = useAuth();
+    const { login, googleLogin, forgotPassword } = useAuth();
     const navigate = useNavigate();
     const location = useLocation();
     
@@ -18,15 +18,35 @@ const Login = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        
+        if (!email || !password) {
+            toast.error('Please fill in all fields');
+            return;
+        }
+        
         setLoading(true);
         
         try {
             await login(email, password);
+            toast.success('Login successful!');
             navigate(from, { replace: true });
         } catch (error) {
             console.error('Login error:', error);
+            // Error message is already handled in AuthContext
         } finally {
             setLoading(false);
+        }
+    };
+
+    const handleForgotPassword = async () => {
+        if (email) {
+            try {
+                await forgotPassword(email);
+            } catch (error) {
+                console.error('Forgot password error:', error);
+            }
+        } else {
+            toast.error('Please enter your email first');
         }
     };
 
@@ -56,7 +76,7 @@ const Login = () => {
                 
                 <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
                     <div className="space-y-4">
-                        {/* Email Field */}
+                        {/* Email section */}
                         <div>
                             <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
                                 Email Address
@@ -118,13 +138,7 @@ const Login = () => {
                     <div className="flex items-center justify-end">
                         <button
                             type="button"
-                            onClick={() => {
-                                if (email) {
-                                    useAuth().forgotPassword(email);
-                                } else {
-                                    toast.error('Please enter your email first');
-                                }
-                            }}
+                            onClick={handleForgotPassword}
                             className="text-sm text-green-600 hover:text-green-500 font-medium"
                         >
                             Forgot Password?
