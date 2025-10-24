@@ -12,7 +12,7 @@ import 'swiper/css/pagination';
 const Hero = () => {
     const { plants, loading, error } = usePlants();
     
-    // Get more plants for hero slides (first 6 plants)
+    
     const heroPlants = plants.slice(0, 6);
 
     if (loading) return <PageLoader message="Loading beautiful plants..." />;
@@ -32,7 +32,7 @@ const Hero = () => {
     );
 
     return (
-        <div className="h-screen bg-green-800">
+        <div className="relative h-screen bg-green-800 overflow-hidden">
             <Swiper
                 modules={[Navigation, Pagination, Autoplay]}
                 spaceBetween={0}
@@ -43,21 +43,21 @@ const Hero = () => {
                 }}
                 loop={true}
                 pagination={{ clickable: true }}
-                className="h-full"
+                className="h-full w-full"
             >
                 {heroPlants.map((plant) => (
                     <SwiperSlide key={plant.plantId}>
-                        <div className="h-screen bg-green-800 flex flex-col lg:flex-row">
+                        <div className="h-screen bg-green-800 flex flex-col lg:flex-row relative">
                             {/* Left Content Area */}
-                            <div className="w-full lg:w-1/2 flex flex-col justify-center px-6 md:px-12 lg:px-16 py-12 lg:py-0">
+                            <div className="w-full lg:w-1/2 flex flex-col justify-center px-4 sm:px-6 md:px-12 lg:px-16 py-8 sm:py-12 lg:py-0 z-10">
                                 <div className="text-left">
-                                    {/* Welcome Text */}
-                                    <p className="text-green-300 text-xs md:text-sm font-medium mb-3 md:mb-4 tracking-wider">
+                                    
+                                    <p className="text-green-300 text-xs sm:text-sm font-medium mb-3 sm:mb-4 tracking-wider">
                                         — WELCOME TO GREENNEST
                                     </p>
                                     
-                                    {/* Dynamic Main Title based on plant */}
-                                    <h1 className="text-white text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight mb-4 md:mb-6">
+                                    
+                                    <h1 className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight mb-4 sm:mb-6">
                                         {plant.category === 'Air Purifier' && 'Clean Air, Healthy Life'}
                                         {plant.category === 'Trailing' && 'Beautiful Trailing Plants'}
                                         {plant.category === 'Flowering' && 'Blooming Beauty'}
@@ -69,53 +69,55 @@ const Hero = () => {
                                         {!['Air Purifier', 'Trailing', 'Flowering', 'Low Light', 'Statement', 'Succulent', 'Foliage', 'Fern'].includes(plant.category) && 'Expert Care for Every Plant'}
                                     </h1>
                                     
-                                    {/* Dynamic Description based on plant */}
-                                    <p className="text-white text-base md:text-lg mb-6 md:mb-8 opacity-90">
-                                        {plant.description?.substring(0, 120)}...
+                                
+                                    <p className="text-white text-sm sm:text-base md:text-lg mb-4 sm:mb-6 md:mb-8 opacity-90">
+                                        {plant.description?.substring(0, 100)}...
                                     </p>
                                     
-                                    {/* Plant specific info */}
-                                    <div className="mb-6 md:mb-8">
-                                        <div className="flex items-center gap-4 mb-3">
-                                            <span className="bg-green-600 text-white px-3 py-1 rounded-full text-sm font-medium">
+                                   
+                                    <div className="mb-4 sm:mb-6 md:mb-8">
+                                        <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-3">
+                                            <span className="bg-green-600 text-white px-3 py-1 rounded-full text-xs sm:text-sm font-medium w-fit">
                                                 {plant.careLevel} Care
                                             </span>
-                                            <span className="text-green-300 text-sm">
+                                            <span className="text-green-300 text-xs sm:text-sm">
                                                 ★ {plant.rating} Rating
                                             </span>
                                         </div>
-                                        <p className="text-green-300 text-sm">
+                                        <p className="text-green-300 text-xs sm:text-sm">
                                             Only ${plant.price} • {plant.availableStock} in stock
                                         </p>
                                     </div>
                                     
-                                    {/* Action Buttons */}
-                                    <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 md:gap-4">
-                                        <button className="bg-green-600 hover:bg-green-700 text-white px-6 md:px-8 py-3 md:py-4 rounded-lg font-semibold flex items-center gap-2 transition-colors duration-300 text-sm md:text-base">
+                                    
+                                    <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4">
+                                        <button className="bg-green-600 hover:bg-green-700 text-white px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 rounded-lg font-semibold flex items-center gap-2 transition-colors duration-300 text-xs sm:text-sm md:text-base w-full sm:w-auto justify-center">
                                             Shop {plant.plantName}
-                                            <ArrowRight size={18} />
+                                            <ArrowRight size={16} className="sm:w-4 sm:h-4" />
                                         </button>
                                         
-                                        <button className="border-2 border-white text-white p-3 md:p-4 rounded-lg hover:bg-white hover:text-green-800 transition-colors duration-300">
-                                            <Heart size={18} />
+                                        <button className="border-2 border-white text-white p-2 sm:p-3 md:p-4 rounded-lg hover:bg-white hover:text-green-800 transition-colors duration-300 w-full sm:w-auto flex justify-center">
+                                            <Heart size={16} className="sm:w-4 sm:h-4" />
                                         </button>
                                     </div>
                                 </div>
                             </div>
                             
-                            {/* Right Image Area */}
-                            <div className="w-full lg:w-1/2 relative h-80 md:h-96 lg:h-screen">
-                                <div className="h-full flex items-center justify-center p-4 md:p-6 lg:p-8">
-                                    <div className="relative w-full h-full">
+                            
+                            <div className="w-full lg:w-1/2 relative flex items-center justify-center p-4 sm:p-6 md:p-8">
+                                
+                                <div className="w-full  lg:aspect-auto lg:h-full flex items-center justify-center">
+                                    <div className="relative  max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl">
                                         <img 
                                             src={plant.image} 
                                             alt={plant.plantName}
-                                            className="w-full h-full object-cover rounded-2xl md:rounded-3xl shadow-2xl"
+                                            className="w-full h-full object-contain rounded-2xl md:rounded-3xl shadow-2xl"
+                                            style={{ maxHeight: '100%', maxWidth: '100%' }}
                                         />
-                                        {/* Plant info overlay */}
-                                        <div className="absolute bottom-3 md:bottom-4 left-3 md:left-4 bg-white bg-opacity-90 rounded-lg p-2 md:p-3">
-                                            <h3 className="font-bold text-gray-800 text-sm md:text-base">{plant.plantName}</h3>
-                                            <p className="text-xs md:text-sm text-gray-600">{plant.category}</p>
+                                        
+                                        <div className="absolute bottom-2 sm:bottom-3 md:bottom-4 left-2 sm:left-3 md:left-4 bg-white bg-opacity-90 rounded-lg p-2 sm:p-3">
+                                            <h3 className="font-bold text-gray-800 text-xs sm:text-sm md:text-base">{plant.plantName}</h3>
+                                            <p className="text-xs sm:text-sm text-gray-600">{plant.category}</p>
                                         </div>
                                     </div>
                                 </div>
