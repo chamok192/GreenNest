@@ -7,7 +7,7 @@ import { useState } from 'react';
 
 const Navbar = () => {
     const { currentUser, logout } = useAuth();
-    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const [, setIsDropdownOpen] = useState(false);
 
     const handleLogout = async () => {
         try {
