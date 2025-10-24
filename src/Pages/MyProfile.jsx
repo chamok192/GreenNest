@@ -4,7 +4,7 @@ import { User, Mail, Camera, Save, LogOut } from 'lucide-react';
 
 
 const MyProfile = () => {
-    const { currentUser, updateUserProfile, logout, authLoading } = useAuth();
+    const { currentUser, updateUserProfile, logout } = useAuth();
     const [isEditing, setIsEditing] = useState(false);
     const [loading, setLoading] = useState(false);
     const [formData, setFormData] = useState({
