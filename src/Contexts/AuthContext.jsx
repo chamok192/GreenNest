@@ -9,7 +9,8 @@ import {
     GoogleAuthProvider,
     signInWithPopup
 } from 'firebase/auth';
-import { auth } from '../firebase/config';
+import { doc, setDoc, getDoc } from 'firebase/firestore';
+import { auth, db } from '../firebase/config';
 import toast from 'react-hot-toast';
 
 const AuthContext = createContext();
@@ -32,6 +33,15 @@ export const AuthProvider = ({ children }) => {
                 displayName: displayName,
                 photoURL: photoURL || null
             });
+            
+            await setDoc(doc(db, 'users', result.user.uid), {
+                displayName: displayName,
+                email: email,
+                photoURL: photoURL || null,
+                createdAt: new Date(),
+                lastLogin: new Date()
+            });
+            
             toast.success('Account created successfully!');
             return result;
         } catch (error) {
@@ -46,15 +56,15 @@ export const AuthProvider = ({ children }) => {
     const login = async (email, password) => {
         setAuthLoading(true);
         try {
-            console.log('Attempting login with:', email);
             const result = await signInWithEmailAndPassword(auth, email, password);
-            console.log('Login successful:', result.user);
+            
+            await setDoc(doc(db, 'users', result.user.uid), {
+                lastLogin: new Date()
+            }, { merge: true });
+            
             toast.success('Welcome back!');
             return result;
         } catch (error) {
-            console.error('Login error details:', error);
-            console.error('Error code:', error.code);
-            console.error('Error message:', error.message);
             toast.error(error.message);
             throw error;
         } finally {
@@ -68,6 +78,14 @@ export const AuthProvider = ({ children }) => {
         try {
             const provider = new GoogleAuthProvider();
             const result = await signInWithPopup(auth, provider);
+            
+            await setDoc(doc(db, 'users', result.user.uid), {
+                displayName: result.user.displayName,
+                email: result.user.email,
+                photoURL: result.user.photoURL,
+                lastLogin: new Date()
+            }, { merge: true });
+            
             toast.success('Welcome!');
             return result;
         } catch (error) {

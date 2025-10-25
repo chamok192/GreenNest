@@ -39,9 +39,14 @@ const Navbar = () => {
                                     <NavLink className="font-semibold text-[#227540] active:bg-green-300" to={"/plants"}>Plants</NavLink> 
                                 </li>
                                 {currentUser ? (
-                                    <li> 
-                                        <NavLink className="font-semibold text-[#227540] active:bg-green-300" to={"/profile"}>My Profile</NavLink> 
-                                    </li>
+                                    <>
+                                        <li> 
+                                            <NavLink className="font-semibold text-[#227540] active:bg-green-300" to={"/favorites"}>Favorites</NavLink> 
+                                        </li>
+                                        <li> 
+                                            <NavLink className="font-semibold text-[#227540] active:bg-green-300" to={"/profile"}>My Profile</NavLink> 
+                                        </li>
+                                    </>
                                 ) : (
                                     <>
                                         <li> 
@@ -81,6 +86,18 @@ const Navbar = () => {
                                     Plants
                                 </NavLink>
                             </li>
+                            {currentUser && (
+                                <li>
+                                    <NavLink
+                                        to="/favorites"
+                                        className={({ isActive }) =>
+                                            ` font-semibold ${isActive ? 'text-green-700 border-b-2 border-green-500' : 'font-semibold text-[#2f8b51] hover:text-green-500'}`
+                                        }
+                                    >
+                                        Favorites
+                                    </NavLink>
+                                </li>
+                            )}
                         </ul>
                     </div>
                     <div className="navbar-end hidden lg:flex">
@@ -100,6 +117,11 @@ const Navbar = () => {
                                             <User className="h-5 w-5" />
                                         </div>
                                         <ul tabIndex={0} className="menu menu-sm dropdown-content bg-white rounded-box z-[1] mt-3 w-52 p-2 shadow text-gray-800">
+                                            <li>
+                                                <Link to="/favorites" className="justify-between">
+                                                    Favorites
+                                                </Link>
+                                            </li>
                                             <li>
                                                 <Link to="/profile" className="justify-between">
                                                     My Profile
