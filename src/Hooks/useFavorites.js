@@ -17,11 +17,11 @@ const useFavorites = () => {
 
     const fetchFavorites = async () => {
         if (!currentUser) return;
-
+        
         try {
             const userRef = doc(db, 'users', currentUser.uid);
             const userSnap = await getDoc(userRef);
-
+            
             if (userSnap.exists()) {
                 setFavorites(userSnap.data().favorites || []);
             }
@@ -42,7 +42,7 @@ const useFavorites = () => {
             await updateDoc(userRef, {
                 favorites: arrayUnion(plantId)
             });
-
+            
             setFavorites(prev => [...prev, plantId]);
             toast.success('Added to favorites!');
         } catch (error) {
@@ -62,7 +62,7 @@ const useFavorites = () => {
             await updateDoc(userRef, {
                 favorites: arrayRemove(plantId)
             });
-
+            
             setFavorites(prev => prev.filter(id => id !== plantId));
             toast.success('Removed from favorites');
         } catch (error) {

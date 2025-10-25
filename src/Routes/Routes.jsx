@@ -7,13 +7,14 @@ import Signup from "../Pages/Signup";
 import PlantDetails from "../Pages/PlantDetails";
 import MyProfile from "../Pages/MyProfile";
 import AllPlants from "../Pages/AllPlants";
-import Favorites from "../Pages/Favorites";
 import ProtectedRoute from "../Components/ProtectedRoute";
+import Error from "../Error/Error";
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <MainLayout />,
+        errorElement:<Error />,
         children: [
             {
                 index: true,
@@ -24,8 +25,8 @@ const router = createBrowserRouter([
                 element: <Login />
             },
             {
-                path: "plants",
-                element: <AllPlants />
+                path:"plants",
+                element:<AllPlants />
             },
             {
                 path: "signup",
@@ -44,14 +45,6 @@ const router = createBrowserRouter([
                 element: (
                     <ProtectedRoute>
                         <MyProfile />
-                    </ProtectedRoute>
-                )
-            },
-            {
-                path: "favorites",
-                element: (
-                    <ProtectedRoute>
-                        <Favorites />
                     </ProtectedRoute>
                 )
             }

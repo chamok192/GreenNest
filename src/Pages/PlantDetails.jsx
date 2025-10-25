@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import usePlants from '../Hooks/usePlants';
-import useStockManagement from '../Hooks/useStockManagement';
 import { Star, ShoppingCart, Calendar, Mail, User, ArrowLeft } from 'lucide-react';
 import toast from 'react-hot-toast';
 import Spinner from '../Components/Spinner';
@@ -11,7 +10,6 @@ const PlantDetails = () => {
     const { plantId } = useParams();
     const navigate = useNavigate();
     const { plants, loading, error } = usePlants();
-    const { stockData, reduceStock } = useStockManagement();
     const [plant, setPlant] = useState(null);
     const [formData, setFormData] = useState({
         name: '',
@@ -33,22 +31,22 @@ const PlantDetails = () => {
         }));
     };
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-
+        
         if (!formData.name || !formData.email) {
             toast.error('Please fill in all fields');
             return;
         }
 
-        const success = await reduceStock(plant.plantId, 1);
-        if (success) {
-            toast.success('Consultation booked successfully! We will contact you soon.');
-            setFormData({
-                name: '',
-                email: ''
-            });
-        }
+        // Show success message
+        toast.success('Consultation booked successfully! We will contact you soon.');
+        
+        // Clear form
+        setFormData({
+            name: '',
+            email: ''
+        });
     };
 
     if (loading) {
@@ -93,7 +91,7 @@ const PlantDetails = () => {
                                 className="w-full h-full object-cover"
                             />
                         </div>
-
+                        
                         {/* Plant Info Cards */}
                         <div className="grid grid-cols-2 gap-4">
                             <div className="bg-white p-4 rounded-lg shadow-md">
@@ -106,7 +104,7 @@ const PlantDetails = () => {
                             <div className="bg-white p-4 rounded-lg shadow-md">
                                 <div className="flex items-center">
                                     <ShoppingCart className="h-5 w-5 text-green-500 mr-2" />
-                                    <span className="font-semibold">{stockData[plant.plantId] || plant.availableStock}</span>
+                                    <span className="font-semibold">{plant.availableStock}</span>
                                 </div>
                                 <p className="text-sm text-gray-600 mt-1">In Stock</p>
                             </div>
@@ -155,7 +153,7 @@ const PlantDetails = () => {
                             <p className="text-gray-600 mb-6">
                                 Get personalized care advice from our plant experts
                             </p>
-
+                            
                             <form onSubmit={handleSubmit} className="space-y-4">
                                 <div>
                                     <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
