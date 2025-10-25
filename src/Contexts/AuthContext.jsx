@@ -1,9 +1,9 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { 
-    signInWithEmailAndPassword, 
-    createUserWithEmailAndPassword, 
-    signOut, 
-    onAuthStateChanged, 
+import {
+    signInWithEmailAndPassword,
+    createUserWithEmailAndPassword,
+    signOut,
+    onAuthStateChanged,
     updateProfile,
     sendPasswordResetEmail,
     GoogleAuthProvider,
@@ -33,7 +33,7 @@ export const AuthProvider = ({ children }) => {
                 displayName: displayName,
                 photoURL: photoURL || null
             });
-            
+
             await setDoc(doc(db, 'users', result.user.uid), {
                 displayName: displayName,
                 email: email,
@@ -41,7 +41,7 @@ export const AuthProvider = ({ children }) => {
                 createdAt: new Date(),
                 lastLogin: new Date()
             });
-            
+
             toast.success('Account created successfully!');
             return result;
         } catch (error) {
@@ -57,11 +57,11 @@ export const AuthProvider = ({ children }) => {
         setAuthLoading(true);
         try {
             const result = await signInWithEmailAndPassword(auth, email, password);
-            
+
             await setDoc(doc(db, 'users', result.user.uid), {
                 lastLogin: new Date()
             }, { merge: true });
-            
+
             toast.success('Welcome back!');
             return result;
         } catch (error) {
@@ -78,14 +78,14 @@ export const AuthProvider = ({ children }) => {
         try {
             const provider = new GoogleAuthProvider();
             const result = await signInWithPopup(auth, provider);
-            
+
             await setDoc(doc(db, 'users', result.user.uid), {
                 displayName: result.user.displayName,
                 email: result.user.email,
                 photoURL: result.user.photoURL,
                 lastLogin: new Date()
             }, { merge: true });
-            
+
             toast.success('Welcome!');
             return result;
         } catch (error) {
@@ -135,19 +135,19 @@ export const AuthProvider = ({ children }) => {
     // Password validation function
     const validatePassword = (password) => {
         const errors = [];
-        
+
         if (password.length < 6) {
             errors.push('Password must be at least 6 characters long');
         }
-        
+
         if (!/[A-Z]/.test(password)) {
             errors.push('Password must contain at least one uppercase letter');
         }
-        
+
         if (!/[a-z]/.test(password)) {
             errors.push('Password must contain at least one lowercase letter');
         }
-        
+
         return errors;
     };
 

@@ -32,7 +32,7 @@ const Hero = () => {
     );
 
     return (
-        <div className="relative h-screen bg-green-800 overflow-hidden">
+        <div className="relative h-220 lg:h-screen   bg-green-800 overflow-hidden">
             <Swiper
                 modules={[Navigation, Pagination, Autoplay]}
                 spaceBetween={0}

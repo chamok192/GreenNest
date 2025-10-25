@@ -35,7 +35,7 @@ const PlantDetails = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        
+
         if (!formData.name || !formData.email) {
             toast.error('Please fill in all fields');
             return;
@@ -93,7 +93,7 @@ const PlantDetails = () => {
                                 className="w-full h-full object-cover"
                             />
                         </div>
-                        
+
                         {/* Plant Info Cards */}
                         <div className="grid grid-cols-2 gap-4">
                             <div className="bg-white p-4 rounded-lg shadow-md">
@@ -155,7 +155,7 @@ const PlantDetails = () => {
                             <p className="text-gray-600 mb-6">
                                 Get personalized care advice from our plant experts
                             </p>
-                            
+
                             <form onSubmit={handleSubmit} className="space-y-4">
                                 <div>
                                     <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">

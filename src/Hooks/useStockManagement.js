@@ -16,12 +16,12 @@ const useStockManagement = () => {
                 availableStock: newStock,
                 lastUpdated: new Date()
             }, { merge: true });
-            
+
             setStockData(prev => ({
                 ...prev,
                 [plantId]: newStock
             }));
-            
+
             toast.success('Stock updated successfully!');
         } catch (error) {
             toast.error('Failed to update stock');
@@ -35,7 +35,7 @@ const useStockManagement = () => {
         try {
             const stockRef = doc(db, 'stock', plantId.toString());
             const stockSnap = await getDoc(stockRef);
-            
+
             if (stockSnap.exists()) {
                 return stockSnap.data().availableStock;
             }
@@ -68,4 +68,3 @@ const useStockManagement = () => {
 };
 
 export default useStockManagement;
-
